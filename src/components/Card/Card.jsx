@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const Card = ({ card }) => {
   const {
     thumbnail,
-    authors: [{ profile_picture, profile_name }],
+    authors: [{ profile_picture, profile_name, verified }],
     others: { views },
     title,
   } = card;
@@ -26,7 +26,13 @@ const Card = ({ card }) => {
           <div>
             <h2 className="text-neutral-900 font-bold">{title}</h2>
 
-            <p className="text-gray-500 text-sm mt-2">{profile_name}</p>
+            <div className="flex gap-2 items-center">
+              <p className="text-gray-500 text-sm mt-2">{profile_name}</p>
+              <img
+                src={verified ? "./blueTick.png" : ""}
+                alt=""
+              />
+            </div>
 
             <p className="text-gray-500 text-xs mt-2">{views}</p>
           </div>
