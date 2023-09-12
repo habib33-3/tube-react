@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <main className="p-14">
+      <main className="py-10">
         <Navigation></Navigation>
         <Cards></Cards>
       </main>

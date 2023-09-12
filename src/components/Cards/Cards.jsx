@@ -18,7 +18,7 @@ const Cards = () => {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-6 container mx-auto">
+      <div className="grid grid-cols-4 gap-6 w-11/12 mx-auto">
         {cards.map((card) => {
           return (
             <>

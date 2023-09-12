@@ -1,21 +1,31 @@
 import PropTypes from "prop-types";
+import { timeConversion } from "../../util/timeConversion";
 
 const Card = ({ card }) => {
   const {
     thumbnail,
     authors: [{ profile_picture, profile_name, verified }],
-    others: { views },
+    others: { views, posted_date },
     title,
   } = card;
 
   return (
     <>
       <div className="card  p-5 bg-base-200 shadow-lg py-10">
-        <img
-          src={thumbnail}
-          alt=""
-          className="w-80 h-52 mx-auto rounded-lg"
-        />
+        <div className="relative">
+          <img
+            src={thumbnail}
+            alt=""
+            className="w-80 h-52 mx-auto rounded-lg"
+          />
+          {posted_date ? (
+            <p className="bg-black text-white text-xs absolute p-1 right-0 bottom-0 rounded-sm">
+              {timeConversion(posted_date)}
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
 
         <div className="flex gap-2 items-center mt-5">
           <img
