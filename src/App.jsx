@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import Cards from "./components/Cards/Cards";
 import { useEffect, useState } from "react";
+import NoContent from "./components/NoContent/NoContent";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -24,7 +25,11 @@ function App() {
       <Header></Header>
       <main className="py-10">
         <Navigation fetchData={fetchData}></Navigation>
-        <Cards cards={cards}></Cards>
+        {cards.length === 0 ? (
+          <NoContent></NoContent>
+        ) : (
+          <Cards cards={cards}></Cards>
+        )}
       </main>
     </>
   );
