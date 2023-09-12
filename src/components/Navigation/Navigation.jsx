@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const Navigation = () => {
+const Navigation = ({ fetchData }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,10 @@ const Navigation = () => {
           {categories.map((category) => {
             return (
               <>
-                <button className="btn btn-accent rounded-sm focus:bg-red-400 text-[#252525B2] font-medium text-base">
+                <button
+                  onClick={() => fetchData(category.category_id)}
+                  className="btn btn-accent rounded-sm focus:bg-red-400 text-[#252525B2] font-medium text-base"
+                >
                   {category.category}
                 </button>
               </>
@@ -37,6 +40,8 @@ const Navigation = () => {
   );
 };
 
-Navigation.propTypes = {};
+Navigation.propTypes = {
+  fetchData: PropTypes.func,
+};
 
 export default Navigation;

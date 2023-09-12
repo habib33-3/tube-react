@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { timeConversion } from "../../util/timeConversion";
 
-const Card = ({ card }) => {
+const Card = ({ card, }) => {
   const {
     thumbnail,
     authors: [{ profile_picture, profile_name, verified }],
